@@ -1,9 +1,5 @@
 package list
 
-import (
-	"github.com/36625090/lambda/compare"
-)
-
 type SortedLinkList[T any] struct {
 	LinkList[T]
 }
@@ -19,11 +15,11 @@ func (list *SortedLinkList[T]) Add(val T) {
 		list.head = node
 	} else {
 		curr := list.head
-		if compare.Compare(val, curr.Val, compare.CmpModeLess) {
+		if Compare(val, curr.Val, CompareModeLess) {
 			node.next = curr
 			list.head = node
 		} else {
-			for curr.next != nil && compare.Compare(val, curr.next.Val, compare.CmpModeGreater) {
+			for curr.next != nil && Compare(val, curr.next.Val, CompareModeGreater) {
 				curr = curr.next
 			}
 			node.next = curr.next

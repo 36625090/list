@@ -7,7 +7,6 @@
 package list
 
 import (
-	"github.com/36625090/lambda/compare"
 	"sync"
 )
 
@@ -139,7 +138,7 @@ func (list *DoubleList[T]) Find(val T) *Node[T] {
 		return nil
 	}
 	for node := list.head; node != nil; node = node.next {
-		if compare.Compare(node.Val, val, compare.CmpModeEqual) {
+		if Compare(node.Val, val, CompareModeEqual) {
 			return node
 		}
 	}
